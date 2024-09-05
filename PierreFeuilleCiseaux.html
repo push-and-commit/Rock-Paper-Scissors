@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RockPaperScissors</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta charset="utf-8">
+<body>
+	<div id="games">
+		<input type="button" id="joueurVsIA" name="joueurVsIA" value="Jouer contre l'IA">
+		<input type="button" id="iaVsIA" name="iaVsIA" value="Partie IA contre IA">
+	</div>
+	<div id="joueurPFC" style="display:none;">
+		Choisissez pierre, feuille ou ciseaux :
+		<div id="divPierre" class="divPFC"><img id="pierre" class="PFC" src="pierre.png"></div>
+		<div id="divFeuille" class="divPFC"><img id="feuille" class="PFC" src="feuille.png"></div>
+		<div id="divCiseaux" class="divPFC"><img id="ciseaux" class="PFC" src="ciseaux.png"></div>
+	</div>
+	<div id="divScoreP1" style="display:none;">
+		<span id="spanScoreP1"></span>
+		<input id="inpScoreP1" type="number" value="0" disabled>
+	</div>
+	<div id="divScoreP2" style="display:none;">
+		<span id="spanScoreP2"></span>
+		<input id="inpScoreP2" type="number" value="0" disabled>
+	</div>
+	<div id="divWinner" style="display:none;"></div>
+	<input type="button" id="resetGame" name="resetGame" value="Recommencer une partie" style="display:none;">
+	<div id="divMinuteur" style="display:none;">
+		Temps restant :<br>
+		<input id="minuteur" value="1:00:00" disabled>
+	</div>
+</body>
+<script type="text/javascript" src="Main.js">
+</script>
+<script type="text/javascript">
+	
+	// Récupération des boutons d'accueil
+	var joueurVsIA = document.getElementById("joueurVsIA");
+	var iaVsIA = document.getElementById("iaVsIA");
+
+	// Lance une partie joueur contre ordianteur (joueur vs IA)
+	joueurVsIA.onclick = function(){
+		var partie = new Partie(0);
+
+		// Stockage des images dans une variable
+		var pierre = document.getElementById("divPierre");
+		var feuille = document.getElementById("divFeuille");
+		var ciseaux = document.getElementById("divCiseaux");
+		var joueur;
+		// Lance une manche avec pierre
+		pierre.onclick = function(){
+			joueur = 1;
+			partie.manche(joueur, Math.round(Math.random()*2)+1,"inpScoreP1","inpScoreP2","divWinner", 0);
+		}
+		// Lance une manche avec feuille
+		feuille.onclick = function(){
+			joueur = 2;
+			partie.manche(joueur, Math.round(Math.random()*2)+1,"inpScoreP1","inpScoreP2","divWinner", 0);
+		}
+		// Lance une manche avec ciseaux
+		ciseaux.onclick = function(){
+			joueur = 3;
+			partie.manche(joueur, Math.round(Math.random()*2)+1,"inpScoreP1","inpScoreP2","divWinner", 0);
+		}
+
+		if(minuteur() == "Temps écoulé !"){
+			document.getElementById("divWinner").innerHTML += "Temps écoulé<br>" + partie.getWinner("inpScoreP1", "inpScoreP2", "divWinner", 0);
+		}
+	}
+
+	// Lance une partie IA vs IA
+	iaVsIA.onclick = function(){
+		var partie  = new Partie(1);
+
+		/*while(minuteur() != "Temps écoulé !"){
+			setTimeout(partie.manche(Math.round(Math.random()*2)+1, Math.round(Math.random()*2)+1,"inpScoreP1","inpScoreP2","divWinner", 1), 1000);
+		}*/
+
+		if(minuteur() == "Temps écoulé !"){
+			document.getElementById("divWinner").innerHTML += "Temps écoulé<br>" + partie.getWinner("inpScoreP1", "inpScoreP2", "divWinner", 1);
+		}
+	}
+
+</script>
+</html>

@@ -1,0 +1,94 @@
+input:hover{
+	color : red;
+}
+.divPFC{
+	cursor : pointer;
+	position:absolute;
+	width:33%;
+	height:20%;
+	left : 27%;
+}
+.PFC{
+	position : absolute;
+	width : 33%;
+	height : 100%;
+}
+#games{
+	position : absolute;
+	top : 40%;
+	left : 40%;
+}
+#joueurPFC{
+	margin-top : 5%;
+	text-align : center;
+	font-size : 200%;
+}
+#pierre{
+	left : 20%;
+}
+#feuille{
+	left : 55%;
+}
+#ciseaux{
+	left : 90%;
+}
+#divScoreP1{
+	position : absolute;
+	top : 50%;
+	left : 15%;
+	border : 1px solid black;
+	width : 7%;
+	height : 8%;
+	text-align : center;
+}
+#divScoreP2{
+	position : absolute;
+	top : 50%;
+	right : 15%;
+	border : 1px solid black;
+	width : 7%;
+	height : 8%;
+	text-align : center;
+}
+#inpScoreP1{
+	width : 100%;
+	background-color : white;
+	border : none;
+	text-align : center;
+	font-size : 150%;
+}
+#inpScoreP2{
+	width : 100%;
+	background-color : white;
+	border : none;
+	text-align : center;
+	font-size : 150%;
+}
+#divWinner{
+	position : absolute;
+	top : 50%;
+	left : 30%;
+	width : 40%;
+	height : 8%;
+	font-size : 200%;
+	font-style : bold;
+	text-align : center;
+}
+#divMinuteur{
+	position : absolute;
+	top : 5%;
+	right : 5%;
+	width : 5%;
+	height : 5%;
+	font-size : 150%;
+}
+#minuteur{
+	border : none;
+	background-color : white;
+	font-size : 150%;
+}
+#resetGame{
+	position : absolute;
+	top : 60%;
+	left : 45%;
+}
